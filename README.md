@@ -1,6 +1,6 @@
 # An open source Human Computer Interface to help Blind users to code
  
-We are working on the project for my thesis in Integrated Product Design, and I wanted to make this project open source, so as to 
+I am working on this project for my thesis in Integrated Product Design, and I wanted to make this project open source, so as to 
 augment its impact. 
 
 # The Story

@@ -1,7 +1,8 @@
 # An open source Human Computer Interface to help Blind users to code
  
-I am working on this project for my thesis in Integrated Product Design, and I wanted to make this project open source, so as to 
-augment its impact. 
+I am working on this project for my thesis in Integrated Product Design, and I wanted to make this project open source, so as widen its
+impact and ensure it reaches the last mile. As a product designer and mechanical engineer by background, I believe I am limited. This is
+is an effort to explore and introduce a new approach towards bringing more blind users into the programming world. I believe, only with community development, can this project reach its fullest potential. Hence, I invite designers, engineers, computer scientists and enthusiasts to make the world of programming accessible for all. 
 
 # The Story
 I am an Integrated Product Design  student of the Industrial Design Faculty at the Delft University of Technology. My thesis is on 

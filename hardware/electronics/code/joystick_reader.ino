@@ -1,3 +1,5 @@
+# This code will only work in certain arduino versions (Leonardo, Esplora, Zero, Due and MKR Family)
+
 #include <Keyboard.h>
 int VRx = A0;
 int VRy = A1;

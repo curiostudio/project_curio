@@ -3,5 +3,5 @@ This edge serves as the reference point for the user to know which side is up.  
 
 Specifications: 
 Sheet 1: 900 x 300 (3mm MDF)
-Sheet 2: 800 x 100 (5mm Poplar wood)
+Sheet 2: 900 x 150 (5mm Poplar wood)
 

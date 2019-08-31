@@ -7,20 +7,21 @@ is an effort to explore and introduce a new approach towards bringing more blind
 # The Story
 I am an Integrated Product Design  student of the Industrial Design Faculty at the Delft University of Technology. My thesis is on 
 'Development of a HCI device to enable blind children to learn coding'. In the 21st century, learning to code is synonymous and as 
-important as learning a new language. Lack of Computational Thinking (CT), which coding helps to develop, results in employability 
-opportunities for blind people. Visually impaired people have a hard time finding job opportunities. Finding one requires their workplace
-and their travel to the workplace are accessible too. Moreover, the popular assistive tools like Refreshable Braille Displays are used
-asthe 'only' available option in the market to help blind people to code. There are four major problems that prevents the majority
-users in this target group to learn and use coding are- 
+important as learning a new language. Lack of Computational Thinking (CT), which coding helps to develop, results in blind users missing on
+Lucrative jobs in the programming world. for blind people. Visually impaired people have a hard time finding job opportunities. Finding one requires their workplace
+and their travel to the workplace are accessible too. On the other hand, blind people can work from home when it comes to programming jobs.
+Moreover, the popular assistive tools like Refreshable Braille Displays, though inaccessible (by purchasing power) to most users,
+are the 'only' available option in the market to help blind people to code. There are four major problems that prevents the majority
+users in this target group to learn and use coding- 
 
  1) The global braille literacy is very low, meaning most of them depend on screen readers as they cannot use braille based assistive 
-    aids. According to the European Blind Union, braille illiteracy causes 75% of their unemployability scenarios.
+    aids like the Braille displays. According to the European Blind Union, braille illiteracy causes 75% of their unemployability scenarios.
 
  2) Refreshable braille displays are expensive, for individuals in the middle and low income groups to afford. During my research in 
     India, I found that only a  few (even) blind schools knew about these braille displays and that too they have seen only in the 
     magazines/ websites. It is simply too expensive to own one. 
 
- 3) Screen readers (that is available for free) is designed to read naturallanguage and not source code. Though these softwares can be 
+ 3) Screen readers (that is available for free) is designed to read only natural language and not source code. Though these softwares can be 
     configured to read symbols or to skip them, it is often difficult to say which configuration would best suited to understand the 
     code in consideration, and 
 

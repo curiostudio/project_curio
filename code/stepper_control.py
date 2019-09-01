@@ -12,10 +12,10 @@ motor_control_pins = [
     ([23, 21, 19, 10], "Eddie")]
 
 for motor in motor_control_pins:
-    for pin in motor:
+    for pin in motor[0]:
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, 0)
-  
+
 halfstep_seq = [
     [1,0,0,0],
     [1,1,0,0],
@@ -38,7 +38,7 @@ def set_5_indents(levels):
     for i in range(5):
         motor_steps[i] = levels[i] * steps_per_level
         
-    for current_full_step in range(max(levels) * steps_per_level):                
+    for current_full_step in range(max(levels) * steps_per_level):
         for halfstep in range(8):
             i = 0
             for motor in motor_control_pins:

@@ -101,7 +101,7 @@ def get_5_indent_deltas(old, new):
 
 @static_vars(page = [0] * 5)
 @static_vars(previous_page = [0] * 5)
-def update_interface(start_line):
+def update_interface(start_line, visible_lines):
     " Calculates the new state of the interface "
     update_interface.page = get_5_indent_values(indents, active_line)
     update_interface.previous_page = update_interface.page
@@ -116,9 +116,8 @@ total_lines = len(indents)
 userinput = ""
 
 if total_lines <= 5:
+    update_interface(0, total_lines)
     print ("Showing lines: 1 - %d" % (total_lines))
-    # Set steppers en do nothing
-    pass
 else:
     while True:
 
@@ -143,6 +142,7 @@ else:
         if active_line + display_lines > total_lines:
             display_lines = total_lines - active_line
 
+        update_interface(active_line, display_lines)
         print ("Showing lines: %d - %d" % (active_line + 1, active_line + display_lines))
         userinput = input("(N)ext | (P)revious | (Q)uit > ")
     # end while

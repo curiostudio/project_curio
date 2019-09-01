@@ -28,7 +28,8 @@ halfstep_seq = [
 
 
 def reverse_motor(motor):
-    return ([motor[0][2], motor[0][1], motor[0][0], motor[0][3]], motor[1])
+    return [motor[2], motor[1], motor[0], motor[3]]
+
 
 def set_5_indents(levels):
     steps_per_level = 512
@@ -45,7 +46,7 @@ def set_5_indents(levels):
                 for pin in range(4):
                     if (current_full_step < motor_steps[i]):
                         if (levels[i] < 0):
-                            GPIO.output(reverse_motor(motor)[0][pin], halfstep_seq[halfstep][pin])
+                            GPIO.output(reverse_motor(motor[0])[pin], halfstep_seq[halfstep][pin])
                         elif (levels[i] > 0): 
                             GPIO.output(motor[0][pin], halfstep_seq[halfstep][pin])
                 i = i + 1

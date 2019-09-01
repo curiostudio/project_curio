@@ -22,7 +22,7 @@ halfstep_seq = [
 
 def reverse_motor(motor):
     return ([motor[0][2], motor[0][1], motor[0][0], motor[0][3]], motor[1])
-#end def
+# end def
 
 
 def set_5_indents(levels):
@@ -43,7 +43,7 @@ def set_5_indents(levels):
                 else:
                     pass  # The else-clause should never be visited
             i = i + 1
-#end def
+# end def
 
 
 def load_indents_from_file(filename):
@@ -56,17 +56,19 @@ def load_indents_from_file(filename):
         if (not line):
             break
         else:
-            ind.append((len(line) - len(line.lstrip())) >> 2)  # asuming 4 spaces per indent level
+            # asuming 4 spaces per indent level
+            ind.append((len(line) - len(line.lstrip())) >> 2)
 
     filehandle.close()
     return ind
-#end def
+# end def
 
 
 def get_5_indent_values(in_buffer, start_line):
     " returns five lines from the input buffer "
     return in_buffer[start_line:start_line+5]
-#end def
+# end def
+
 
 indents = load_indents_from_file("mock_stepper_control.py")
 
@@ -76,5 +78,5 @@ for e in indents:
 
 # Select five indent values from a certain linenumber
 five_indents = get_5_indent_values(indents, 37)
-# TODO: calculate relative indentations 
+# TODO: calculate relative indentations
 set_5_indents(five_indents)

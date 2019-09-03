@@ -41,15 +41,18 @@ def reverse_motor(motor):
 
 
 def set_5_indents(levels):
-    steps_per_level = 1
-    motor_steps = [0] * 5
+    steps_per_level = 512
+    motor_steps = [0] * len(levels)
 
-    for i in range(5):
+    for i in range(len(levels)):
         motor_steps[i] = levels[i] * steps_per_level
 
     for current_full_step in range(max(levels) * steps_per_level):
         i = 0  # Keeps track of the motor indices
         for motor in motor_control_pins:
+            if (i + 1) > len(levels):
+                break
+
             if current_full_step < abs(motor_steps[i]):
                 if levels[i] > 0:
                     print("Forward: {0}", motor[1])
@@ -89,8 +92,9 @@ def get_5_indent_deltas(old, new):
     return [(new[i] - old[i]) for i in range(5) if (i < len(new)) and (i < len(old))]
 # end def
 
-@static_vars(page = [0] * 5)
-@static_vars(previous_page = [0] * 5)
+
+@static_vars(page=[0] * 5)
+@static_vars(previous_page=[0] * 5)
 def update_interface(start_line, visible_lines):
     " Calculates the new state of the interface "
     update_interface.page = get_5_indent_values(indents, active_line)
@@ -107,12 +111,12 @@ userinput = ""
 
 if total_lines <= 5:
     update_interface(0, total_lines)
-    print ("Showing lines: 1 - %d" % (total_lines))
+    print("Showing lines: 1 - %d" % (total_lines))
 else:
     while True:
 
         # User selected Next page
-        if (userinput.upper() == "N") and ((active_line + 5) <= total_lines): 
+        if (userinput.upper() == "N") and ((active_line + 5) <= total_lines):
             active_line = active_line + 5
             display_lines = 5
 
@@ -133,6 +137,7 @@ else:
             display_lines = total_lines - active_line
 
         update_interface(active_line, display_lines)
-        print ("Showing lines: %d - %d" % (active_line + 1, active_line + display_lines))
+        print("Showing lines: %d - %d" %
+              (active_line + 1, active_line + display_lines))
         userinput = input("(N)ext | (P)revious | (Q)uit > ")
     # end while

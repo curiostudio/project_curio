@@ -42,7 +42,7 @@ def reverse_motor(motor):
 
 def set_5_indents(levels):
     steps_per_level = 512
-    motor_steps = [0] * len(levels)
+    motor_steps = [0] * 5
 
     for i in range(len(levels)):
         motor_steps[i] = levels[i] * steps_per_level
@@ -97,7 +97,13 @@ def get_5_indent_deltas(old, new):
 @static_vars(previous_page=[0] * 5)
 def update_interface(start_line, visible_lines):
     " Calculates the new state of the interface "
+    print("Showing lines: %d - %d" %
+            (start_line + 1, start_line + visible_lines))
     update_interface.page = get_5_indent_values(indents, active_line)
+    
+    for p1, p2 in zip(update_interface.previous_page, update_interface.page): 
+        print(p1, p2, "|", p2 - p1)
+
     update_interface.previous_page = update_interface.page
 # end def
 
@@ -106,7 +112,7 @@ indents = load_indents_from_file("mock_stepper_control.py")
 
 active_line = 0
 display_lines = 5
-total_lines = len(indents)
+total_lines = len(indents) + 1
 userinput = ""
 
 if total_lines <= 5:
@@ -137,7 +143,5 @@ else:
             display_lines = total_lines - active_line
 
         update_interface(active_line, display_lines)
-        print("Showing lines: %d - %d" %
-              (active_line + 1, active_line + display_lines))
         userinput = input("(N)ext | (P)revious | (Q)uit > ")
     # end while

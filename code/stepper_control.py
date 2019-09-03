@@ -110,11 +110,12 @@ def get_5_indent_deltas(old, new):
 def update_interface(start_line, visible_lines):
     " Calculates the new state of the interface "
     print("Showing lines: %d - %d" %
-            (start_line + 1, start_line + visible_lines))
+          (start_line + 1, start_line + visible_lines))
     update_interface.page = get_5_indent_values(indents, active_line)
-    
-    for p1, p2 in zip(update_interface.previous_page, update_interface.page): 
-        print(p1, p2, "|", p2 - p1)
+
+    print("prev\tnext\t|\tdifference")
+    for p1, p2 in zip(update_interface.previous_page, update_interface.page):
+        print(p1, p2, "|", p2 - p1, sep='\t')
 
     update_interface.previous_page = update_interface.page
 # end def

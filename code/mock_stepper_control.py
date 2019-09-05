@@ -21,7 +21,7 @@ halfstep_seq = [
 
 
 def static_vars(**kwargs):
-    """ 
+    """
     Custom decorator to allow declaration of static variables like this:\n
     @static_var(variable = 0)\n
     def foo(parameters):\n
@@ -65,7 +65,10 @@ def set_5_indents(levels):
 
 
 def load_indents_from_file(filename):
-    " Load all indent information from the file and returns a list of indentations "
+    """
+    Load all indent information from the file and returns a list of
+    indentations
+    """
     filehandle = open(filename, 'r')
     ind = []
 

@@ -118,7 +118,7 @@ def update_interface(start_line, visible_lines):
 
     print("prev\tnext\t|\tdifference")
     for p1, p2 in zip(update_interface.previous_page, update_interface.page):
-        print(p1, p2, "|", p2 - p1, sep='\t')
+        print(p1, p2, "|", p2 - p1, sep="\t")
 
     update_interface.previous_page = update_interface.page
 # end def

@@ -56,8 +56,15 @@ main stream content and support (eg, P   ython, Java etc)
 
 # Design Focus
  - Enabling blind users to skim through code (code blocks and hierarchy) and to understand the logic of the code. 
-   (This is currently not possible and the users form mental mind maps to understand the code, while their sighted counterparts can easily
-   skim through code and understand it)
+   (This is currently not possible and the users form mental mind maps to understand the code, while their sighted counterparts can   
+   easily skim through code and understand it)
  - Designing a low cost, easy to build interface, so that more users in the middle and lower economic sections can benefit from the ICT 
    Job market
  - Developing an open source model, with emphasis on value generation through 'Share your wealth' business model.  
+
+# Mentors
+This project wouldn't be possible without the support and guidance of 
+Dr. Ianus Keller, Interaction design teacher
+Dr. Wilfred van der Vegte, Assistant Professor, Computer Aided Design Engineering 
+Mr. Richard Bekking, Electronics Expert
+Mr. Jose Calors Jurra Llanusa, Open Source Hardware Expert

@@ -64,7 +64,7 @@ main stream content and support (eg, P   ython, Java etc)
 
 # Mentors
 This project wouldn't be possible without the support and guidance of 
-Dr. Ianus Keller, Interaction design teacher
-Dr. Wilfred van der Vegte, Assistant Professor, Computer Aided Design Engineering 
-Mr. Richard Bekking, Electronics Expert
-Mr. Jose Calors Jurra Llanusa, Open Source Hardware Expert
+Dr. Ianus Keller (Interaction design teacher and thesis Chair)
+Dr. Wilfred van der Vegte (Assistant Professor, Computer Aided Design Engineering and thesis Mentor) 
+Mr. Richard Bekking (Electronics Expert)
+Mr. Jose Calors Jurra Llanusa (Open Source Hardware Expert)

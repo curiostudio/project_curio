@@ -151,6 +151,10 @@ else:
         elif userinput.upper() == "Q":
             break
 
+        elif userinput.isdigit():
+            print("Detected %d" % userinput)
+            break
+
         # User entered invalid character
         else:
             pass
@@ -159,7 +163,7 @@ else:
             display_lines = total_lines - active_line
 
         update_interface(active_line, display_lines)
-        userinput = input("(N)ext | (P)revious | (Q)uit > ")
+        userinput = input("(N)ext | (P)revious | [0-4] | (Q)uit > ")
     # end while
 
 

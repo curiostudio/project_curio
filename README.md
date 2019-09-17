@@ -68,3 +68,6 @@ Dr. Ianus Keller (Interaction design teacher and thesis Chair)
 Dr. Wilfred van der Vegte (Assistant Professor, Computer Aided Design Engineering and thesis Mentor) 
 Mr. Richard Bekking (Electronics Expert)
 Mr. Jose Calors Jurra Llanusa (Open Source Hardware Expert)
+
+# Repository Guide
+This readme provides the background information to this project. You can find all the scripts and code that run the device in the code folder, while the design files (laser cut files, 3D printing files, schematics, BOM) are in the hardware folder. The progress folder has all the information related to the progress of the project (roadmap, version map, contribution guide). The project tab shows the Kanban boards from the two development phases. 

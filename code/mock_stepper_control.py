@@ -1,8 +1,6 @@
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 import time
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
 
 motor_control_pins = [
     ([11,  7, 15, 13], "Alice"),
@@ -10,11 +8,6 @@ motor_control_pins = [
     ([33, 31, 29, 35], "Charlie"),
     ([36, 37, 38, 40], "Derek"),
     ([23, 21, 19, 10], "Eddie")]
-
-for motor in motor_control_pins:
-    for pin in motor[0]:
-        GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, 0)
 
 halfstep_seq = [
     [1, 0, 0, 0],
@@ -55,24 +48,19 @@ def set_5_indents(levels):
         motor_steps[i] = levels[i] * steps_per_level
 
     for current_full_step in range(max(levels) * steps_per_level):
-        for halfstep in range(8):
-            i = 0
-            for motor in motor_control_pins:
-                if (i + 1) > len(levels):
-                    break
+        i = 0  # Keeps track of the motor indices
+        for motor in motor_control_pins:
+            if (i + 1) > len(levels):
+                break
 
-                print(i)
-                for pin in range(4):
-                    if (current_full_step < motor_steps[i]):
-                        if (levels[i] < 0):
-                            GPIO.output(reverse_motor(motor[0])[
-                                        pin], halfstep_seq[halfstep][pin])
-                        elif (levels[i] > 0):
-                            GPIO.output(motor[0][pin],
-                                        halfstep_seq[halfstep][pin])
-                i = i + 1
-
-            time.sleep(0.001)
+            if current_full_step < abs(motor_steps[i]):
+                if levels[i] > 0:
+                    print("Forward: {0}", motor[1])
+                elif levels[i] < 0:
+                    print("Reverse: {0}", motor[1])
+                else:
+                    pass  # The else-clause should never be visited
+            i = i + 1
 # end def
 
 
@@ -161,6 +149,3 @@ else:
         update_interface(active_line, display_lines)
         userinput = input("(N)ext | (P)revious | (Q)uit > ")
     # end while
-
-
-GPIO.cleanup()

@@ -2,14 +2,16 @@ The internal lead screws are 3D printed in the current design. The decision to 3
 
 Lead Screws printing configuration:
 
-Material: PLA 
+Material: Nylon 12
+Printing Method: SLS
 Infill Density: 80% 
 Orientation: Horizontal
 Support: Touching buildplate
 
 Travelling Nut printing configuration
 
-Material: PLA
+Material: Nylon 12
+Printing Method: SLS
 Infill Density: 50%
 Orientation: Vertical
 Support: Everywhere

@@ -163,6 +163,8 @@ active_line = 0
 display_lines = 5
 userinput = ""
 
+GPIO.setmode(7, GPIO.OUT)
+GPIO.output(7, 1)
 
 @static_vars(page=[0] * 5)
 @static_vars(previous_page=[0] * 5)
@@ -232,3 +234,6 @@ else:
         update_interface(active_line, display_lines)
         userinput = input("(N)ext | (P)revious | Relative line#[1-5] | Word# in line[A-Z] | (Q)uit > ")
     # end while
+# end if
+
+GPIO.cleanup()

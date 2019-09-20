@@ -140,10 +140,6 @@ class stepper_control:
         # end for
     # end def
 
-    for motor in motor_control_pins:
-        for pin in motor:
-            GPIO.setup(pin, GPIO.OUT)
-            GPIO.output(pin, 0)
 
     def set_indents(self, levels):
         set_5_indents_real(self, levels)
@@ -190,6 +186,7 @@ curio_app = curio()
 indents = indent_decoder()
 indents.load_file("mock_stepper_control.py")
 steppers = stepper_control()
+
 active_line = 0
 display_lines = 5
 userinput = ""
@@ -218,8 +215,6 @@ if indents.get_total_lines() <= 5:
     update_interface(0, indents.get_total_lines())
     print(f"Showing lines: 1 - {indents.get_total_lines()}")
 else:
-    setup_GPIO()
-
     while True:
 
         curio_app.run()

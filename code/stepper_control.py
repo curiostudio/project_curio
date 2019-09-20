@@ -133,7 +133,7 @@ class stepper_control:
             [1, 0, 0, 1]]
 
         for motor in self.motor_control_pins:
-            for pin in motor:
+            for pin in motor[0]:
                 GPIO.setup(pin, GPIO.OUT)
                 GPIO.output(pin, 0)
             # end for

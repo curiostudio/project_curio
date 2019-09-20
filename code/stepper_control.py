@@ -6,13 +6,6 @@ import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 
-def setup_GPIO():
-    for motor in motor_control_pins:
-        for pin in motor:
-            GPIO.setup(pin, GPIO.OUT)
-            GPIO.output(pin, 0)
-# end def
-
 
 def static_vars(**kwargs):
     """
@@ -139,6 +132,11 @@ class stepper_control:
             [0, 0, 0, 1],
             [1, 0, 0, 1]]
         return
+
+        for motor in self.motor_control_pins:
+            for pin in motor:
+                GPIO.setup(pin, GPIO.OUT)
+                GPIO.output(pin, 0)
     # end if
 
 
@@ -216,7 +214,7 @@ if indents.get_total_lines() <= 5:
     print(f"Showing lines: 1 - {indents.get_total_lines()}")
 else:
     setup_GPIO()
-    
+
     while True:
 
         curio_app.run()

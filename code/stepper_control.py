@@ -1,4 +1,3 @@
-# import RPi.GPIO as GPIO
 import time
 import os
 import linecache
@@ -40,7 +39,6 @@ def set_5_indents_real(object, levels):
                 if (i + 1) > len(levels):
                     break
 
-                print(i)
                 for pin in range(4):
                     if (current_full_step < motor_steps[i]):
                         if (levels[i] < 0):
@@ -52,34 +50,6 @@ def set_5_indents_real(object, levels):
                 i = i + 1
 
             time.sleep(0.001)
-# end def
-
-
-def set_5_indents_mock(object, levels):
-    steps_per_level = 512
-    motor_steps = [0] * 5
-
-    for i in range(len(levels)):
-        motor_steps[i] = levels[i] * steps_per_level
-
-    for current_full_step in range(max(levels) * steps_per_level):
-        i = 0  # Keeps track of the motor indices
-        for motor in object.motor_control_pins:
-            if (i + 1) > len(levels):
-                break
-            # end if
-
-            if current_full_step < abs(motor_steps[i]):
-                if levels[i] > 0:
-                    print("Forward: {0}", motor[1])
-                elif levels[i] < 0:
-                    print("Reverse: {0}", motor[1])
-                else:
-                    pass  # The else-clause should never be visited
-                # end if
-            # end if
-            i = i + 1
-        # end for
 # end def
 
 

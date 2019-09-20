@@ -40,7 +40,6 @@ def set_5_indents_real(object, levels):
                 if (i + 1) > len(levels):
                     break
 
-                print(i)
                 for pin in range(4):
                     if (current_full_step < motor_steps[i]):
                         if (levels[i] < 0):
@@ -56,7 +55,8 @@ def set_5_indents_real(object, levels):
 
 
 def set_5_indents_mock(object, levels):
-    steps_per_level = 512
+    print("mock code")
+    steps_per_level = 1
     motor_steps = [0] * 5
 
     for i in range(len(levels)):
@@ -71,9 +71,9 @@ def set_5_indents_mock(object, levels):
 
             if current_full_step < abs(motor_steps[i]):
                 if levels[i] > 0:
-                    print("Forward: {0}", motor[1])
+                    print(f"Forward: {motor[1]}")
                 elif levels[i] < 0:
-                    print("Reverse: {0}", motor[1])
+                    print(f"Reverse: {motor[1]}")
                 else:
                     pass  # The else-clause should never be visited
                 # end if
@@ -193,8 +193,12 @@ def update_interface(start_line, visible_lines):
     update_interface.page = indents.get_values(active_line)
 
     print("prev\tnext\t|\tdifference")
+    levels = []
     for p1, p2 in zip(update_interface.previous_page, update_interface.page):
         print(p1, p2, "|", p2 - p1, sep="\t")
+        levels.append(p2 - p1)
+
+    steppers.set_indents(levels)
 
     update_interface.previous_page = update_interface.page
 # end def

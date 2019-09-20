@@ -178,7 +178,7 @@ class curio:
 
 curio_app = curio()
 indents = indent_decoder()
-indents.load_file("indent_test_7lines.py")
+indents.load_file("mock_stepper_controll.py")
 steppers = stepper_control()
 active_line = 0
 display_lines = 5

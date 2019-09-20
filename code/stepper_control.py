@@ -2,9 +2,9 @@
 import time
 import os
 import linecache
-#import RPi.GPIO as GPIO
-#GPIO.setwarnings(False)
-#GPIO.setmode(GPIO.BOARD)
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
 
 
 def static_vars(**kwargs):

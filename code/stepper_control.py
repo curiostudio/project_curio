@@ -193,8 +193,12 @@ def update_interface(start_line, visible_lines):
     update_interface.page = indents.get_values(active_line)
 
     print("prev\tnext\t|\tdifference")
+    levels = []
     for p1, p2 in zip(update_interface.previous_page, update_interface.page):
         print(p1, p2, "|", p2 - p1, sep="\t")
+        levels.append(p2 - p1)
+
+    steppers.set_indents(levels)
 
     update_interface.previous_page = update_interface.page
 # end def

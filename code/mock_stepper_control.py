@@ -84,30 +84,31 @@ def set_5_indents_mock(object, levels):
 
 
 class indent_decoder:
-    def __init__(self, filename):
-        self.indentations = []
-        self.filehandle = open(filename, 'r')
-        return
-    # end def
-
-
-    def load_indents_from_file(self):
+    def load_file(self, filename):
         """
         Load all indent information from the file and returns a list of
         indentations
         """
-        while True:
-            line = self.filehandle.readline()
-            if (not line):
-                break
-            else:
-                # asuming 4 spaces per indent level
-                self.indentations.append((len(line) - len(line.lstrip())) >> 2)
-            # end if
-        # end while 
 
-        self.filehandle.close()
-        return self.indentations
+        print(f"[indent_decoder] Opening file: {filename}.")
+
+        with open(filename, 'r') as f:
+            content = f.readlines()
+
+        self.indentations = [(len(line) - len(line.lstrip())) >> 2 for line in content]
+
+        print(f"[indent_decoder] Loaded {len(self.indentations)} lines.")
+
+    # end def
+
+
+    def get_values(self, start_line, num=5):
+        " Returns five lines from the input buffer "
+        return self.indentations[start_line:start_line+num]
+    # end def
+
+    def get_total_lines(self):
+        return len(self.indentations)
     # end def
 # end class
 
@@ -142,13 +143,10 @@ class stepper_control:
 
 
 class curio:
-    def __init__(self, filename):
-        self.indents = indent_decoder(filename)
-        self.steppers = stepper_control
+    def __init__(self):
         self.active_line = 0
         self.speech_line = 0
         self.display_lines = 5
-        self.total_lines = len(self.indents) + 1
         return
     # end def
 
@@ -167,15 +165,32 @@ class curio:
         self.display_lines = 5
         return
     # end def
+
+    def get_line_from_file(self, linenumber):
+        return []
+    # end def
+
+    def run(self):
+        pass
+    # end def
 # end class
+
+
+curio_app = curio()
+indents = indent_decoder()
+indents.load_file("indent_test_7lines.py")
+steppers = stepper_control()
+active_line = 0
+display_lines = 5
+userinput = ""
+
 
 @static_vars(page=[0] * 5)
 @static_vars(previous_page=[0] * 5)
 def update_interface(start_line, visible_lines):
     " Calculates the new state of the interface "
-    print("Showing lines: %d - %d" %
-          (start_line + 1, start_line + visible_lines))
-    update_interface.page = get_5_indent_values(indents, active_line)
+    print(f"Showing lines: {start_line + 1} - {start_line + visible_lines}")
+    update_interface.page = indents.get_values(active_line)
 
     print("prev\tnext\t|\tdifference")
     for p1, p2 in zip(update_interface.previous_page, update_interface.page):
@@ -185,23 +200,25 @@ def update_interface(start_line, visible_lines):
 # end def
 
 
-curio_app = curio("stepper_controll.py")
-
-userinput = ""
-
-if total_lines <= 5:
-    update_interface(0, total_lines)
-    print("Showing lines: 1 - %d" % (total_lines))
+if indents.get_total_lines() <= 5:
+    update_interface(0, indents.get_total_lines())
+    print(f"Showing lines: 1 - {indents.get_total_lines()}")
 else:
     while True:
 
+        curio_app.run()
+
         # User selected Next page
-        if (userinput == "n") and ((active_line + 5) <= total_lines):
-            next_page()
+        if (userinput == "n") and ((active_line + 5) <= indents.get_total_lines()):
+            active_line = active_line + 5
+            speech_line = 1
+            display_lines = 5
 
         # User selected Previous page
         elif (userinput == "p") and ((active_line - 5) >= 0):
-            previous_page()
+            active_line = active_line - 5
+            speech_line = 1
+            display_lines = 5
 
         # User selected Quit program
         elif userinput == "q":
@@ -210,15 +227,15 @@ else:
         elif userinput.isdigit():
             if (int(userinput) > 0) and (int(userinput) <= 5):
                 speech_line = active_line + int(userinput)
-                print("Active line: %d\n" % int(userinput))
+                print(f"Active line: {int(userinput)}\n")
             else:
                 print("Number not in range [1-5]\n")
 
         elif userinput.isalpha():
             if (userinput >= "A") and (userinput <= "Z"):
                 word_number = ord(userinput[0]) - ord("A")
-                print("word# %d" % word_number)
-                print(fetch_word(filename, speech_line, word_number))
+                print(f"word# {word_number}")
+                #  `print(fetch_word(filename, speech_line, word_number))
             else:
                 print("Letter not in range [A-Z]\n")
 
@@ -226,8 +243,8 @@ else:
         else:
             pass
 
-        if active_line + display_lines > total_lines:
-            display_lines = total_lines - active_line
+        if active_line + display_lines > indents.get_total_lines():
+            display_lines = indents.get_total_lines() - active_line
 
         update_interface(active_line, display_lines)
         userinput = input("(N)ext | (P)revious | Relative line#[1-5] | Word# in line[A-Z] | (Q)uit > ")

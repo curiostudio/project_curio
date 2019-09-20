@@ -163,7 +163,7 @@ active_line = 0
 display_lines = 5
 userinput = ""
 
-GPIO.setmode(7, GPIO.OUT)
+GPIO.setup(7, GPIO.OUT)
 GPIO.output(7, 1)
 
 @static_vars(page=[0] * 5)

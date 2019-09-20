@@ -163,8 +163,6 @@ active_line = 0
 display_lines = 5
 userinput = ""
 
-GPIO.setup(7, GPIO.OUT)
-GPIO.output(7, 1)
 
 @static_vars(page=[0] * 5)
 @static_vars(previous_page=[0] * 5)

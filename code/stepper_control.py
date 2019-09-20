@@ -1,9 +1,9 @@
 import time
 import os
 import linecache
-import RPi.GPIO as GPIO
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
+#import RPi.GPIO as GPIO
+#GPIO.setwarnings(False)
+#GPIO.setmode(GPIO.BOARD)
 
 
 def static_vars(**kwargs):
@@ -42,11 +42,13 @@ def set_5_indents_real(object, levels):
                 for pin in range(4):
                     if (current_full_step < motor_steps[i]):
                         if (levels[i] < 0):
-                            GPIO.output(reverse_motor(motor[0])[pin], 
-                                        object.halfstep_seq[halfstep][pin])
+                            #GPIO.output(reverse_motor(motor[0])[pin], 
+                            #            object.halfstep_seq[halfstep][pin])
+                            pass
                         elif (levels[i] > 0):
-                            GPIO.output(motor[0][pin],
-                                        object.halfstep_seq[halfstep][pin])
+                            #GPIO.output(motor[0][pin],
+                            #            object.halfstep_seq[halfstep][pin])
+                            pass
                 i = i + 1
 
             time.sleep(0.001)

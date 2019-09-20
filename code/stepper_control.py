@@ -140,6 +140,10 @@ class stepper_control:
         # end for
     # end def
 
+    for motor in motor_control_pins:
+        for pin in motor:
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, 0)
 
     def set_indents(self, levels):
         set_5_indents_real(self, levels)

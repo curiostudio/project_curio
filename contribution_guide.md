@@ -67,29 +67,31 @@ Hardware
     6) Add haptic motors for debugging
 
 User testing
-			- with blind programmers
-			- with blind schools (how teachers find it to teach, how children learn)
-			- Ergonomics test
-			- Self administered user test
-		- Research
-			- Multi-modal interaction	
-			- Usability test with middle school children and adults	
-			- Productivity benchmarking
-			- Playfulness evaluation
-		- Documentation
-			- Open Hardware best practices
-			- Troubleshooting guide
-			- Collaborative design tools installation guide
-			- Git tutorials
+- with blind programmers
+- with blind schools (how teachers find it to teach, how children learn)
+- Ergonomics test
+- Self administered user test
+Research
+- Multi-modal interaction	
+- Usability test with middle school children and adults	
+- Productivity benchmarking
+- Playfulness evaluation
 
-		- Teaching resources
-			- Programming tutorials
+Documentation
+- Open Hardware best practices
+- Troubleshooting guide
+- Collaborative design tools installation guide
+- Git tutorials
+- CAD Documentation
+
+Teaching resources
+- Programming tutorials
 			
-		- Marketing and Outreach
-			- Content writing
-			- Kickstarter campaign
-			- Market validation
-			- Safety compliances
+Marketing and Outreach
+- Content writing
+- Kickstarter campaign
+- Market validation
+- Safety compliances
       
       
     

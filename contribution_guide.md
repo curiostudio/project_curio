@@ -6,8 +6,8 @@ or a researcher? We need you! If you think you do not fit in with these  backgro
 a blind school near you, with a blind friend or with yourself (also applicabe to sighted people) with our self-administered user test.
 
  # Collaborative Tools:
-     Well workflow is key to contribution and collaboration. This is why we have agreed to use common platforms, which helps 
-     everyone of us to use the same format and same workflow. 
+ Well workflow is key to contribution and collaboration. This is why we have agreed to use common platforms, which helps 
+ everyone of us to use the same format and same workflow. 
      
      Chat: Telegram. 
      All official and unofficial announcements, sharing ideas, events and cheering up achievements happens here. If you are already 

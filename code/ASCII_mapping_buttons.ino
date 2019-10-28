@@ -94,13 +94,7 @@ void loop(){
       Keyboard.releaseAll();
       
    } 
-   
-   
-   
-  
-   
 
-   
    else if (buttonValue3 == LOW){
  
       //M-g

@@ -1,16 +1,21 @@
 // Declare the pins for the Button and the LED<br>int buttonPin = 12;
 #include <Keyboard.h>
 
-int LED = 13;
 int button1 = 12;
 int button2 = 11;
 int button3 = 10;
 int button4 = 9;
 int button5 = 8;
 
+int VRx = A2;
+int xPosition = 0;
+int mapX = 0;
+
 void setup() {
    // Define pin #12 as input and activate the internal pull-up resistor
    Serial.begin(9600);
+   pinMode(VRx, INPUT);
+   
    pinMode(button1, INPUT_PULLUP);
    pinMode(button2, INPUT_PULLUP);
    pinMode(button3, INPUT_PULLUP);
@@ -23,6 +28,29 @@ void setup() {
 }
 
 void loop(){
+  
+    xPosition = analogRead(VRx);
+    //mapX = map(xPosition, 0, 1023, -512, 512);
+  
+    //Read words Backward
+    if (xPosition < 200) {
+    Keyboard.press(130);
+    Keyboard.write(98);
+    Serial.println("Words reading backward");
+   
+    }
+    
+    //Read words Forward
+    else if (xPosition > 337){
+    Keyboard.press(130);
+    Keyboard.write(102);
+    Serial.println("Words reading Forward");
+    
+  
+    }
+  delay(1000);
+  Keyboard.releaseAll();
+  
    // Read the value of the input. It can either be 1 or 0
    int buttonValue1 = digitalRead(button1);
    int buttonValue2 = digitalRead(button2);
@@ -94,7 +122,8 @@ void loop(){
       Keyboard.releaseAll();
       
    } 
-
+   
+   
    else if (buttonValue3 == LOW){
  
       //M-g
@@ -185,3 +214,4 @@ void loop(){
    }
  
 }
+

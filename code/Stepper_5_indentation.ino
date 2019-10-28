@@ -19,7 +19,7 @@ int button4 = 14;
 int button5 = 15;
 
 int VRx = A1;
-int VRy = A2;
+int VRy = A3;
 
 int xPosition = 0;
 int yPosition = 0;
@@ -72,7 +72,7 @@ int StepperPg1()
    stepper5.step(420);
 
    return 1;
-   delay (1000);
+   //delay (100);
  }
 
   
@@ -94,7 +94,7 @@ int StepperPg1()
    stepper5.setSpeed(120);
    stepper5.step(640);
    return 2;
-   delay (1000);
+   //delay (100);
   }
 
 void setup()
@@ -112,98 +112,23 @@ void loop()
 
   xPosition = analogRead(VRx);
   yPosition = analogRead(VRy);
-  mapX = map(xPosition, 0, 1023, -512, 512);
-  mapY = map(yPosition, 0, 1023, -512, 512);
+  //mapX = map(xPosition, 0, 1023, -512, 512);
+  //mapY = map(yPosition, 0, 1023, 0, 1023);
   
  
   
-  if (mapY < -200) 
+  if (yPosition < 201) 
   {
   //Call for StepperPg1 function
   StepperReset();
   pg = StepperPg1();
   }
-  else if (mapY > 200)
+  else if (yPosition > 201)
   {
   //Call for StepperPg2 function
   StepperReset();
   pg = StepperPg2();
   }
-    
-  //Send ASCII code to RPi to read words along X axis
-  //else if (mapX > 200)
-  {
-    //Keyboard.write(215);
-    //delay(100);
-  }
-  
-  //Send ASCII code to RPi to read words along -X axis
-  //else if (mapX > -200)
-  {
-    //Keyboard.write(216);
-    //delay(100);
-  }
-
-
-   
-
-//Send ascii code to Rpi to select particular line number
-  //if (button1 == HIGH) 
-  {
-    //if(pg==1)
-    {
-      //Keyboard.write(1);
-    }
-    //else if (pg==2)
-    {
-      //Keyboard.write(6);
-    } 
-  }
-   //if (button2 == HIGH) 
-  {
-    //if(pg==1)
-    {
-      //Keyboard.write(2);
-    }
-    //else if (pg==2)
-    {
-      //Keyboard.write(7);
-    } 
-  }
-   //if (button3 == HIGH) 
-  {
-    //if(pg==1)
-    {
-      //Keyboard.write(3);
-    }
-    //else if (pg==2)
-    {
-      //Keyboard.write(8);
-    } 
-  }
-   //if (button4 == HIGH) 
-  {
-    //if(pg==1)
-    {
-      //Keyboard.write(4);
-    }
-    //else if (pg==2)
-    {
-      //Keyboard.write(9);
-    } 
-  }
-   //if (button5 == HIGH) 
-  {
-    //if(pg==1)
-    {
-      //Keyboard.write(5);
-    }
-    //else if (pg==2)
-    {
-      //Keyboard.write(10);
-    } 
-  }
-  //Keyboard.releaseAll();
   delay(1000);
 }
   
